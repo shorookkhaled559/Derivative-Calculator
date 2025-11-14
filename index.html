@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Derivative Calculator</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body
+    class="flex min-h-screen w-full flex-col items-center justify-center gap-4 px-4 sm:px-6 py-12 bg-gradient-to-br from-blue-500 via-purple-400 to-purple-300"
+  >
+    <div
+      class="flex w-full max-w-lg flex-col items-center justify-center gap-8 rounded-2xl bg-white px-6 sm:px-8 py-8 sm:py-12 shadow-lg"
+    >
+      <div class="flex w-full flex-col items-center gap-2">
+        <span class="text-3xl sm:text-4xl font-bold text-gray-900 text-center">
+          Derivative Calculator
+        </span>
+        <span class="text-sm sm:text-base text-gray-500 text-center">
+          Enter a function or choose from examples below
+        </span>
+      </div>
+
+      <div class="flex w-full flex-col items-start gap-6">
+        <div class="flex flex-col w-full gap-2">
+          <label class="font-medium">Enter a function</label>
+          <input
+            id="func"
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 text-sm sm:text-base"
+            placeholder="e.g., x^2 or sin(x)"
+          />
+        </div>
+
+        <div class="flex flex-col w-full gap-2">
+          <label class="font-medium">Choose an example function</label>
+          <select
+            id="examples"
+            onchange="setExample()"
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-purple-400 text-sm sm:text-base"
+          >
+            <option selected disabled>Select an example</option>
+            <option>x</option>
+            <option>x^2</option>
+            <option>x^3</option>
+            <option>3x^2 + 5x - 2</option>
+            <option>sin(x)</option>
+            <option>cos(x)</option>
+            <option>tan(x)</option>
+            <option>e^x</option>
+            <option>ln(x)</option>
+            <option>sqrt(x)</option>
+            <option>sin(x^2)</option>
+            <option>ln(sin(x))</option>
+          </select>
+        </div>
+
+        <button
+          onclick="calc()"
+          class="h-12 w-full bg-purple-600 text-white font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-purple-700 text-sm sm:text-base"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            /></svg
+          >Calculate Derivative
+        </button>
+      </div>
+
+      <div
+        class="flex w-full flex-col items-start gap-4 rounded-lg bg-neutral-50 px-4 sm:px-6 py-4 sm:py-6"
+      >
+        <div class="flex w-full items-center gap-2">
+          <div
+            class="w-10 h-10 rounded-full bg-purple-200 flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 17l6-6 4 4 8-8"
+              />
+            </svg>
+          </div>
+          <span class="text-lg sm:text-xl font-bold text-gray-900">
+            Result
+          </span>
+        </div>
+
+        <div
+          class="flex w-full flex-col items-start gap-2 rounded-md border border-neutral-300 bg-white px-3 sm:px-4 py-3 sm:py-4"
+        >
+          <span class="text-xs sm:text-sm text-gray-500">Derivative:</span>
+          <span
+            id="result"
+            class="text-xl sm:text-2xl font-bold text-purple-600"
+            >f'(x) =</span
+          >
+        </div>
+
+        <span class="text-xs sm:text-sm text-gray-500">
+          Enter a function and click calculate to see the derivative
+        </span>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
