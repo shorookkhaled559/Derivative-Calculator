@@ -77,7 +77,7 @@ console.log(derivative); // Output: 3x^2 + 2
 1.  Clone the repository:
 
 ``` bash
-git clone https://github.com/yourusername/Derivative-Calculator.git
+git clone https://github.com/shorookkhaled559/Derivative-Calculator
 ```
 
 2.  Navigate to the project folder:
